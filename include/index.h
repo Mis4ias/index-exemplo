@@ -5,6 +5,15 @@
 #include <fstream>
 #include <string>
 
+void print_original(std::string txt, size_t size){
+	for(size_t i=0; i<=txt.size();i++){
+		if(i%size == 0){
+			std::cout<<std::endl;
+		}
+		std::cout<<txt[i];
+	}		
+}
+
 size_t num_el(std::string file_path){
 	size_t num = 0;	
 	std::string buffer;
@@ -38,6 +47,8 @@ bool input_file(std::string file_path){
 		txt+= stream;
 		stream.clear();
 	}
+	
+	print_original(txt, size);
 	file_in.close();
 	return true;
 }
