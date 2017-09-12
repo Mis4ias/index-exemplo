@@ -5,6 +5,19 @@
 #include <fstream>
 #include <string>
 
+
+void print_vertical(std::string txt, size_t size){
+	size_t k;
+	for(size_t i=0; i<size;i++){
+		k = i;
+		while(k<size*size){	
+			std::cout<<txt[k];
+		k = k + size;
+		}
+	std::cout<<std::endl;
+	}
+
+}
 void print_original(std::string txt, size_t size){
 	for(size_t i=0; i<=txt.size();i++){
 		if(i%size == 0){
@@ -49,6 +62,7 @@ bool input_file(std::string file_path){
 	}
 	
 	print_original(txt, size);
+	print_vertical(txt, size);
 	file_in.close();
 	return true;
 }
