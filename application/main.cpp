@@ -3,7 +3,7 @@
 
 int main(int argc, char **argv){
 	
-	if(!input_file("../input-files/vector.in")){
+	if(!input_file("../input-files/frutas.in")){
 		std::cerr<<"******* Input Failure *******"<<std::endl;
 		return EXIT_FAILURE;	
 	}

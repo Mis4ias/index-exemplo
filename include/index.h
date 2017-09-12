@@ -4,7 +4,17 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-
+void print_diagonal(std::string txt, size_t size){
+	size_t k;
+	for(size_t i=0; i<size;i++){
+		k = i;
+		while(k<size*size){	
+			std::cout<<txt[k];
+		k = k + size + 1;
+		}
+	std::cout<<std::endl;
+	}
+}
 
 void print_vertical(std::string txt, size_t size){
 	size_t k;
@@ -57,12 +67,15 @@ bool input_file(std::string file_path){
 	if(!file_in.is_open()) return false;
 	while(!file_in.eof()){
 		std::getline(file_in, stream, '\n');
-		txt+= stream;
+		if(stream.size() == size) txt+= stream;
 		stream.clear();
 	}
 	
 	print_original(txt, size);
+	std::cout<<std::endl;
 	print_vertical(txt, size);
+	std::cout<<std::endl;
+	print_diagonal(txt, size);
 	file_in.close();
 	return true;
 }
